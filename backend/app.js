@@ -8,6 +8,8 @@ var csurf = require('csurf');
 var { isProduction } = require('./config/keys');
 
 require('./models/User');
+require('./config/passport');
+var passport = require('passport');
 var usersRouter = require('./routes/api/users');
 var tweetsRouter = require('./routes/api/tweets');
 var csrfRouter = require('./routes/api/csrf')
@@ -18,6 +20,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(passport.initialize());
 
 
 // Security Middleware
