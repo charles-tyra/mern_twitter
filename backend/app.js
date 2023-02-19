@@ -8,6 +8,7 @@ var csurf = require('csurf');
 var { isProduction } = require('./config/keys');
 
 require('./models/User');
+require('./models/Tweet');
 require('./config/passport');
 var passport = require('passport');
 var usersRouter = require('./routes/api/users');
